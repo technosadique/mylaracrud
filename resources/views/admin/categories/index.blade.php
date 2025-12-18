@@ -59,7 +59,7 @@
                             </thead>
                             <tbody>
 							    @php $sn = 1; @endphp
-                                @foreach($allcategories as $category)
+                                 @forelse($allcategories as $category)
                                     <tr>
                                         <td>{{ $sn++ }}</td>                                       
                                         <td>{{ $category->name }}</td>
@@ -82,7 +82,13 @@
                                             </div>
                                         </td>
                                     </tr>
-                                @endforeach
+                                 @empty
+								 <tr>
+									<td colspan="3" class="text-center text-danger fw-bold">
+										No record found
+									</td>
+								</tr>
+							@endforelse
                             </tbody>
                         </table>
                     </div>

@@ -44,7 +44,7 @@
                             </thead>
                             <tbody>
 							    @php $sn = 1; @endphp
-                                @foreach($users as $user)
+                                @forelse($users as $user)
                                     <tr>
                                          <td>{{ $sn++ }}</td>
                                         <td>{{ $user->name }}</td>
@@ -55,7 +55,13 @@
                                             </span>
                                         </td>
                                     </tr>
-                                @endforeach
+                                 @empty
+								 <tr>
+									<td colspan="4" class="text-center text-danger fw-bold">
+										No record found
+									</td>
+								</tr>
+								@endforelse
                             </tbody>
                         </table>
                     </div>
